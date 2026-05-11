@@ -72,12 +72,24 @@ global.alternatePlants = [
 ]
   
 global.setFetchResponse = (val) => {
-    global.fetch = vi.fn(() => Promise.resolve({
-        json: () => Promise.resolve(val),
-        ok: true,
-        status: 200
-    }))
-}
+    global.fetch = vi.fn((url, options) => {
+        // If it's a PATCH request, extract the body and return it
+        if (options && options.method === "PATCH") {
+            const body = JSON.parse(options.body);
+            return Promise.resolve({
+                json: () => Promise.resolve(body),
+                ok: true,
+                status: 200
+            });
+        }
+        // Otherwise return the entire array
+        return Promise.resolve({
+            json: () => Promise.resolve(val),
+            ok: true,
+            status: 200
+        });
+    });
+};
 
 afterEach(() => {
     cleanup();
