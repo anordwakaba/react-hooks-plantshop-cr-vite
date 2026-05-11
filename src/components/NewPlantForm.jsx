@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 
+/**
+ * NewPlantForm Component
+ * 
+ * Form component for adding new plants to inventory.
+ * Manages form state locally and calls parent handler on submission.
+ * 
+ * Props:
+ * - onAddPlant: Callback function to handle new plant submission
+ */
 function NewPlantForm({ onAddPlant }) {
-  // Form state for new plant
+  // Form state for new plant inputs
   const [formData, setFormData] = useState({
     name: "",
     image: "",

@@ -3,6 +3,18 @@ import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
+/**
+ * PlantPage Component
+ * 
+ * Main page component that manages state for:
+ * - All plants fetched from backend
+ * - Search query filter
+ * 
+ * Handles all CRUD operations:
+ * - GET: Fetches plants on mount
+ * - POST: Adds new plant from form submission
+ * - PATCH: Updates plant's sold out status
+ */
 function PlantPage() {
   // State for all plants and filtered plants
   const [plants, setPlants] = useState([]);

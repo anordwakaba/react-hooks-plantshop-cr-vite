@@ -1,5 +1,16 @@
 import React from "react";
 
+/**
+ * PlantCard Component
+ * 
+ * Displays individual plant information:
+ * - Image, name, and price
+ * - Button to toggle sold out status
+ * 
+ * Props:
+ * - plant: Plant object with id, name, image, price, soldOut properties
+ * - onSoldOut: Callback function to handle sold out status toggle
+ */
 function PlantCard({ plant, onSoldOut }) {
   return (
     <li className="card" data-testid="plant-item">
