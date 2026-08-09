@@ -9,8 +9,7 @@ function App() {
       <Header />
       <PlantPage />
     </div>
+
   );
 }
-
-
 export default App;
